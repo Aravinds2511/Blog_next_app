@@ -1,18 +1,17 @@
 "use client"
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 
 export const ThemeContext = createContext();
 
-const getFromLocalStorage = () => {
-    const value = localStorage.getItem("theme")
-
-    return value || "light";
-}
+const theme = "light";
 
 export const ThemeContextProvider = ({children}) => {
-    const [theme, setTheme] = useState(() => {
-        return getFromLocalStorage()
-    });
-    return <ThemeContext.Provider>{children}</ThemeContext.Provider>
+    const [theme, setTheme] = useState("light");
+
+    const toggle = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    }
+
+    return <ThemeContext.Provider value={{ theme, toggle}}>{children}</ThemeContext.Provider>
 }
