@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "next": "latest",
+    "next-auth": "^4.23.1",
     "react": "latest",
     "react-dom": "latest",
     "react-quill": "^2.0.0"
   },
   "devDependencies": {
+    "@types/node": "^20.7.1",
+    "@types/react": "^18.2.23",
     "eslint": "latest",
     "eslint-config-next": "latest"
   }
